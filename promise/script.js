@@ -37,8 +37,6 @@ const animationCircle = function (top, left, radius, callback) {
   circle.style.width = 0;
   circle.style.height = 0;
   circle.style.top = `${top}px`;
-  circle.style.width = `${radius * 2}px`;
-  circle.style.height = `${radius * 2}px`;
   circle.addEventListener('transitionend', () => {
     console.log(1);
     circle.removeEventListener('transitionend', handle);
@@ -56,6 +54,7 @@ const animationCircle = function (top, left, radius, callback) {
   //     callback(circle);
   //   });
   // }, 0);
+  btn.clientLeft;
     circle.style.width = `${radius * 2}px`;
     circle.style.height = `${radius * 2}px`;
     circle.addEventListener("transitionend", function handle() {
