@@ -31,41 +31,31 @@ const myPromise = new Promise(function (reslove, reject) {
 // ).catch(err => console.error(`catch ${err}`))
 
 const btn = document.querySelector(".btn");
-const animationCircle = function (top, left, radius, callback) {
+const animationCircle = function (top, left, radius) {
+  console.log("start draw");
   const circle = document.createElement("div");
   circle.classList.add("circle");
   circle.style.width = 0;
   circle.style.height = 0;
   circle.style.top = `${top}px`;
-  circle.addEventListener('transitionend', () => {
-    console.log(1);
-    circle.removeEventListener('transitionend', handle);
-    callback(circle);
-  })
   circle.style.left = `${left}px`;
   document.body.appendChild(circle);
-
-  // setTimeout(() => {
-  //   circle.style.width = `${radius * 2}px`;
-  //   circle.style.height = `${radius * 2}px`;
-  //   circle.addEventListener("transitionend", function handle() {
-  //     console.log(1);
-  //     circle.removeEventListener("transitionend", handle);
-  //     callback(circle);
-  //   });
-  // }, 0);
-  btn.clientLeft;
-    circle.style.width = `${radius * 2}px`;
-    circle.style.height = `${radius * 2}px`;
-    circle.addEventListener("transitionend", function handle() {
-      console.log(1);
-      circle.removeEventListener("transitionend", handle);
-      callback(circle);
-    });
+  console.log("draw down");
+  const mypro = new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("in promise");
+      circle.style.width = `${radius * 2}px`;
+      circle.style.height = `${radius * 2}px`;
+      circle.addEventListener("transitionend", function handle() {
+        circle.removeEventListener("transitionend", handle);
+        resolve(circle);
+      });
+    }, 0);
+    // btn.clientLeft;
+  });
+  console.log("object");
 };
 
 btn.addEventListener("click", () => {
-  animationCircle(100, 100, 100, (circle) => {
-    circle.append("Hello world");
-  });
+  animationCircle(100, 100, 100).then((circle) => circle.append("Hello World"));
 });
