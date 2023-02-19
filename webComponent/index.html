@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <title>Project</title>
+</head>
+<body>
+  <h1>Welcome Project</h1>
+  <!-- <my-button color="red" display="block" width="50px" height="50px"></my-button> -->
+  <button is="my-button"></button>
+  <card-movie></card-movie>
+  <template id="temp">
+    <style>
+      h2 {
+        color: red;
+      }
+    </style>
+    <h2>template</h2>
+    <script>
+      console.log('objecdfet');
+    </script>
+  </template>
+  <template id="dropdown">
+    <style>
+      * {
+        color: red;
+      }
+    </style>
+      <slot name="title"></slot>
+      <slot name="items"></slot>
+  </template>
+  <drop-down>
+    <h2 slot="title">title</h2>
+    <p slot="items">fdfe</p>
+  </drop-down>
+</body>
+</html>
