@@ -23,5 +23,3 @@ Function.prototype.myNew = function(name, age) {
 }
 const person2 = Person.myNew('dfedfe', 18);
 console.log(person2 instanceof Person);
-
-
